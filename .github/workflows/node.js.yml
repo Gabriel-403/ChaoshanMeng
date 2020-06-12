@@ -32,7 +32,7 @@ jobs:
           access-key-id: ${{ secrets.ACCESS_KEY_ID }}
           access-key-secret: ${{ secrets.ACCESS_KEY_SECRET }}
       - name: Deploy To OSS
-      - run: ossutil cp -rf dist oss://chaos-han-meng/
+        run: ossutil cp -rf dist oss://chaos-han-meng/
       # - name: RSyncer Action
       #   uses: Pendect/action-rsyncer@v1.1.0
       #   env:
