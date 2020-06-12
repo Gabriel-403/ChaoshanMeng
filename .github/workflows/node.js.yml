@@ -25,10 +25,10 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
       - run: npm i && npm run build --if-present
-      - name: cp files to server
+      - name: RSyncer Action
+        uses: Pendect/action-rsyncer@v1.1.0
         env:
-          ACTIONS_DEPLOY_KEY: ${{ secrets.chaos_server }}
-          HOST: 39.97.164.224
-          USER: root
-          source: ./dist
-          target: /usr/local/services/chaos-han-meng/
+          DEPLOY_KEY: ${{ secrets.chaos_server }}
+        with:
+          src: 'dist'
+          target: 'root@39.97.164.224:/usr/local/services/chaos-han-meng/'
