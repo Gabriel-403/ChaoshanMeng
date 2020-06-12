@@ -25,19 +25,28 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
       - run: npm run build --if-present
-      - name: RSyncer Action
-        uses: Pendect/action-rsyncer@v1.1.0
-        env:
-          DEPLOY_KEY: ${{ secrets.chaos_server }}
+      - uses: manyuanrong/setup-ossutil@v1.0
         with:
-          src: "dist/"
-          dest: "root@39.97.164.224:/usr/local/services/chaos-han-meng"
+          # endpoint 可以去oss控制台上查看
+          endpoint: "oss-cn-shanghai.aliyuncs.com"
+          access-key-id: ${{ secrets.ACCESS_KEY_ID }}
+          access-key-secret: ${{ secrets.ACCESS_KEY_SECRET }}
+      - name: Deploy To OSS
+        run: ossutil cp -rf public oss://chaos-han-meng/
+      # - name: RSyncer Action
+      #   uses: Pendect/action-rsyncer@v1.1.0
+      #   env:
+      #     DEPLOY_KEY: ${{ secrets.chaos_server }}
+      #   with:
+      #     src: "dist/"
+      #     dest: "root@39.97.164.224:/usr/local/services/chaos-han-meng"
+
       # - name: Deploy
       #   env:
       #     ACTIONS_DEPLOY_KEY: ${{ secrets.chaos_server }}
       #     HOST: 39.97.164.224
       #     USER: root
       #   run: |
-      #     echo hahaha
+      #     echo 'hahaha'
 
 
