@@ -24,7 +24,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
-      - run: npm i && npm run build --if-present
+      - run: npm run build --if-present
       - name: RSyncer Action
         uses: Pendect/action-rsyncer@v1.1.0
         env:
