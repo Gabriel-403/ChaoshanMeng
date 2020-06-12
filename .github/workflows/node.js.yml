@@ -30,4 +30,5 @@ jobs:
           ACTIONS_DEPLOY_KEY: ${{ secrets.chaos_server }}
           HOST: 39.97.164.224
           USER: root
-        run: ossutil cp -rf ./dist /usr/local/services/chaos-han-meng/
+          source: ./dist
+          target: /usr/local/services/chaos-han-meng/
