@@ -32,12 +32,12 @@ jobs:
         with:
           src: "dist/"
           dest: "root@39.97.164.224:/usr/local/services/chaos-han-meng"
-      - name: Deploy
-        env:
-          ACTIONS_DEPLOY_KEY: ${{ secrets.chaos_server }}
-          HOST: 39.97.164.224
-          USER: root
-        run: |
-          echo hahaha
+      # - name: Deploy
+      #   env:
+      #     ACTIONS_DEPLOY_KEY: ${{ secrets.chaos_server }}
+      #     HOST: 39.97.164.224
+      #     USER: root
+      #   run: |
+      #     echo hahaha
 
 
