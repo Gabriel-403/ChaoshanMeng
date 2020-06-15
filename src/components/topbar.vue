@@ -4,7 +4,7 @@
      
           
         <a class="active-item">首页</a>
-     <a class="active-item2">汉化组管理</a>     
+     <a class="active-item2" href="/sinochem-group-fontend/index.html">汉化组管理</a>     
       </div>
 
  
