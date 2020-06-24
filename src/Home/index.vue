@@ -9,17 +9,14 @@
     </div>
     <div class="bulletin-board">
       <bulletboard />
-
     </div>
     <h1 style="font-size: 3em;">相关作品</h1>
-    <div class="cardlayout"><center>
-      <card style="float: left; margin:15px"></card>
-      <card2 style="float: left;  margin:15px"></card2>
-      <card3 style="float: left;  margin:15px"></card3></center>
-    </div>  
-    <div class="clear" ></div> 
+    <div class="cardlayout">
+      <card v-for="(item, index) in works" :key="index" :data="item"></card>
+    </div>
+    <div class="clear"></div>
     <div class="buttombar">
-    <buttombar></buttombar>
+      <buttombar></buttombar>
     </div>
   </div>
 </template>
@@ -30,9 +27,12 @@ import headbar from "./../components/headbar";
 import carousel from "./../components/carouusel";
 import bulletboard from "./../components/bulletin-board";
 import card from "./../components/card";
-import card2 from "./../components/card2";
-import card3 from "./../components/card3";
 import buttombar from "./../components/buttombar";
+
+import img1 from "../assets/images/01.png";
+import img2 from "../assets/images/02.jpeg";
+import img3 from "../assets/images/03.jpeg";
+
 export default {
   components: {
     topbar,
@@ -40,9 +40,38 @@ export default {
     carousel,
     bulletboard,
     card,
-    card2,
-    card3,
     buttombar
+  },
+  data() {
+    return {
+      works: [
+        {
+          img: img1,
+          name: "SummerPocket Steam版",
+          author: "萌田薰子汉化组"
+        },
+        {
+          img: img2,
+          name: "SummerPocket Steam版",
+          author: "萌田薰子汉化组"
+        },
+        {
+          img: img3,
+          name: "SummerPocket Steam版",
+          author: "萌田薰子汉化组"
+        },
+        {
+          img: img1,
+          name: "SummerPocket Steam版",
+          author: "萌田薰子汉化组"
+        },
+        {
+          img: img3,
+          name: "SummerPocket Steam版",
+          author: "萌田薰子汉化组"
+        },
+      ]
+    };
   }
 };
 </script>
@@ -50,7 +79,6 @@ export default {
 <style >
 .main-layout {
   background-color: palevioletred;
-  height: 500px;
 }
 .carousel {
   margin: 50px;
@@ -59,20 +87,15 @@ export default {
   top: 10px;
 }
 .cardlayout {
- margin-left:10% ;
+  padding: 0 40px;
+  display: flex !important;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
-.buttombar{
-background: palevioletred;
-
+.buttombar {
+  background: palevioletred;
 }
-.clear{ clear:both} 
-
-
-
-
-
-
-
-
-
+.clear {
+  clear: both;
+}
 </style>
