@@ -30,7 +30,7 @@ export default {
   margin: 20px 20px 60px;
   min-width: 400px;
 
-  &::after {
+ &::after {
     display: block;
     content: '';
     width: 100%;
